@@ -9,11 +9,14 @@ namespace LevelTest
     {
         [SerializeField] bool isTrigger;
 
+        [HideInInspector] public bool canReset = true;
+
         private void OnCollisionEnter(Collision collision)
         {
+            if (!canReset) { return; }
             if (isTrigger) { return; }
 
-            if (collision.collider.gameObject.tag == "Player")
+            if (collision.collider.gameObject.tag == "Horse")
             {
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             }
@@ -21,6 +24,7 @@ namespace LevelTest
 
         private void OnTriggerEnter(Collider other)
         {
+            if (!canReset) { return; }
             if (!isTrigger) { return; }
 
             if (other.gameObject.tag == "Player")

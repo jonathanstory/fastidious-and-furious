@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5201579081687369991}
   - component: {fileID: 6597527008682042227}
   - component: {fileID: 4708309107314012979}
+  - component: {fileID: 2450679435949236800}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -119,6 +120,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
+  setWanderTime: 0
+  triggerDistance: {x: 10, y: 0, z: 10}
+  wanderRadius: 5
+--- !u!114 &2450679435949236800
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2819209955747339562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 051d42865de99a94cac0dfb0a1d5cc52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isTrigger: 0
 --- !u!1 &6619670890868950897
 GameObject:
   m_ObjectHideFlags: 0
