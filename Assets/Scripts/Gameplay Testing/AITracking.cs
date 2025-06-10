@@ -77,8 +77,6 @@ public class AITracking : MonoBehaviour
                     Vector3 newTarget = RandomNavSphere(startingPosition, wanderRadius);
                     m_Enemy.SetDestination(newTarget);
                     timer = 0;
-
-                Debug.Log("Set wander time");
                 }
             }
     }

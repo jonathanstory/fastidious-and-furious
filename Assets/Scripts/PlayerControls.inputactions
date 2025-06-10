@@ -13,85 +13,61 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Gas",
+                    "type": "Value",
+                    "id": "39a78214-eb09-4ed0-b98f-717e6bd5169e",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
                 {
                     "name": "",
-                    "id": "af308939-b2de-40cf-b907-ca563a0f2249",
-                    "path": "",
+                    "id": "9cfd563a-153c-4498-9b14-5dab3b5f003f",
+                    "path": "<Keyboard>/w",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
-                    "action": "Move",
+                    "groups": ";Keyboard",
+                    "action": "Gas",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "2D Vector",
-                    "id": "ecf9eb49-b84f-4349-86f6-99e7d5152343",
-                    "path": "2DVector",
+                    "name": "",
+                    "id": "e16cc1fd-21b9-44e9-ac7f-e452f0c830ef",
+                    "path": "<Gamepad>/rightTrigger",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
-                    "action": "Move",
-                    "isComposite": true,
+                    "groups": ";Gamepad",
+                    "action": "Gas",
+                    "isComposite": false,
                     "isPartOfComposite": false
-                },
-                {
-                    "name": "up",
-                    "id": "39a5ecda-3cfd-44d1-96e4-a9f9e41cccb6",
-                    "path": "<Gamepad>/leftStick/up",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "down",
-                    "id": "fa93e4da-2236-4ece-b931-b3b06a307392",
-                    "path": "<Gamepad>/leftStick/down",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "left",
-                    "id": "9667d337-d521-4068-b28d-62cd65c3fa10",
-                    "path": "<Gamepad>/leftStick/left",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "right",
-                    "id": "e7fd2a64-8691-4b31-98a9-ef4edf06b3f5",
-                    "path": "<Gamepad>/leftStick/right",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": true
                 }
             ]
         }
     ],
     "controlSchemes": [
         {
-            "name": "Controller",
-            "bindingGroup": "Controller",
+            "name": "Keyboard",
+            "bindingGroup": "Keyboard",
             "devices": [
                 {
-                    "devicePath": "<XInputController>",
+                    "devicePath": "<Keyboard>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        },
+        {
+            "name": "Gamepad",
+            "bindingGroup": "Gamepad",
+            "devices": [
+                {
+                    "devicePath": "<Gamepad>",
                     "isOptional": false,
                     "isOR": false
                 }

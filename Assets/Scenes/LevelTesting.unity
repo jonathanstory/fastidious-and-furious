@@ -1501,6 +1501,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7011806126540502475, guid: d87305570f867d04489596a2fbdf1428, type: 3}
   m_PrefabInstance: {fileID: 132692068}
   m_PrefabAsset: {fileID: 0}
+--- !u!146 &134009586 stripped
+WheelCollider:
+  m_CorrespondingSourceObject: {fileID: 8315777898999730320, guid: dd089e1dcb4313146b7993884763648c, type: 3}
+  m_PrefabInstance: {fileID: 303725993672856167}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &137976216
 GameObject:
   m_ObjectHideFlags: 0
@@ -1605,6 +1610,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 4675678653929961889, guid: c0aadc37cb8b83c4d924c8d28caa623a, type: 3}
   m_PrefabInstance: {fileID: 148251480}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &159660584 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1994390269521817840, guid: dd089e1dcb4313146b7993884763648c, type: 3}
+  m_PrefabInstance: {fileID: 303725993672856167}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &160223581
 PrefabInstance:
@@ -1809,6 +1819,11 @@ Transform:
   - {fileID: 1307363528}
   m_Father: {fileID: 1193026853}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &194510190 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 231099024063092731, guid: dd089e1dcb4313146b7993884763648c, type: 3}
+  m_PrefabInstance: {fileID: 303725993672856167}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &203136530
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2922,6 +2937,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7011806126540502475, guid: d87305570f867d04489596a2fbdf1428, type: 3}
   m_PrefabInstance: {fileID: 282340673}
   m_PrefabAsset: {fileID: 0}
+--- !u!146 &282425139 stripped
+WheelCollider:
+  m_CorrespondingSourceObject: {fileID: 1487530561985743668, guid: dd089e1dcb4313146b7993884763648c, type: 3}
+  m_PrefabInstance: {fileID: 303725993672856167}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &295457658
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3131,6 +3151,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 4675678653929961889, guid: c0aadc37cb8b83c4d924c8d28caa623a, type: 3}
   m_PrefabInstance: {fileID: 303462499}
+  m_PrefabAsset: {fileID: 0}
+--- !u!146 &306738875 stripped
+WheelCollider:
+  m_CorrespondingSourceObject: {fileID: 7764366836127378104, guid: dd089e1dcb4313146b7993884763648c, type: 3}
+  m_PrefabInstance: {fileID: 303725993672856167}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &320500480
 PrefabInstance:
@@ -7000,6 +7025,16 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7011806126540502475, guid: d87305570f867d04489596a2fbdf1428, type: 3}
   m_PrefabInstance: {fileID: 687068722}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &700858939 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6103424207665489475, guid: dd089e1dcb4313146b7993884763648c, type: 3}
+  m_PrefabInstance: {fileID: 303725993672856167}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &715629365 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2064100099510278231, guid: dd089e1dcb4313146b7993884763648c, type: 3}
+  m_PrefabInstance: {fileID: 303725993672856167}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &720795237
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9078,6 +9113,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 4675678653929961889, guid: c0aadc37cb8b83c4d924c8d28caa623a, type: 3}
   m_PrefabInstance: {fileID: 948239070}
+  m_PrefabAsset: {fileID: 0}
+--- !u!146 &950557307 stripped
+WheelCollider:
+  m_CorrespondingSourceObject: {fileID: 7968575116286518899, guid: dd089e1dcb4313146b7993884763648c, type: 3}
+  m_PrefabInstance: {fileID: 303725993672856167}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &950643786
 GameObject:
@@ -17253,6 +17293,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4675678653929961889, guid: c0aadc37cb8b83c4d924c8d28caa623a, type: 3}
   m_PrefabInstance: {fileID: 2020736542}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2027798407 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5081592363594039855, guid: dd089e1dcb4313146b7993884763648c, type: 3}
+  m_PrefabInstance: {fileID: 303725993672856167}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2037596146
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18166,13 +18211,66 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 231099024063092731, guid: dd089e1dcb4313146b7993884763648c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2799247439394261816}
   m_SourcePrefab: {fileID: 100100000, guid: dd089e1dcb4313146b7993884763648c, type: 3}
 --- !u!4 &2799247439394261809 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4132725624775009833, guid: dd089e1dcb4313146b7993884763648c, type: 3}
   m_PrefabInstance: {fileID: 303725993672856167}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2799247439394261816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 194510190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0fefceefe666bb4682b272ec8c5bdd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  move: {fileID: 0}
+  maxSpeed: 130
+  maxReverseSpeed: 45
+  accelerationMultiplier: 2
+  maxSteeringAngle: 27
+  steeringSpeed: 0.5
+  brakeForce: 350
+  decelerationMultiplier: 2
+  handbrakeDriftMultiplier: 5
+  bodyMassCenter: {x: 0, y: 0, z: 0}
+  frontLeftMesh: {fileID: 159660584}
+  frontLeftCollider: {fileID: 950557307}
+  frontRightMesh: {fileID: 715629365}
+  frontRightCollider: {fileID: 134009586}
+  rearLeftMesh: {fileID: 2027798407}
+  rearLeftCollider: {fileID: 282425139}
+  rearRightMesh: {fileID: 700858939}
+  rearRightCollider: {fileID: 306738875}
+  useEffects: 0
+  RLWParticleSystem: {fileID: 0}
+  RRWParticleSystem: {fileID: 0}
+  RLWTireSkid: {fileID: 0}
+  RRWTireSkid: {fileID: 0}
+  useUI: 0
+  carSpeedText: {fileID: 0}
+  useSounds: 0
+  carEngineSound: {fileID: 0}
+  tireScreechSound: {fileID: 0}
+  useTouchControls: 0
+  throttleButton: {fileID: 0}
+  reverseButton: {fileID: 0}
+  turnRightButton: {fileID: 0}
+  turnLeftButton: {fileID: 0}
+  handbrakeButton: {fileID: 0}
+  carSpeed: 0
+  carIsBoosting: 0
+  isDrifting: 0
+  isTractionLocked: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

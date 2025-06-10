@@ -17,14 +17,14 @@ using UnityEngine.InputSystem;
 
 public class PrometeoCarController : MonoBehaviour
 {
-
     //CAR SETUP
 
-      [Space(20)]
+    public PlayerInput move;
+    [Space(20)]
       //[Header("CAR SETUP")]
       [Space(10)]
       [Range(20, 190)]
-      public int maxSpeed = 90; //The maximum speed that the car can reach in km/h.
+      public int maxSpeed = 130; //The maximum speed that the car can reach in km/h.
       [Range(10, 120)]
       public int maxReverseSpeed = 45; //The maximum speed that the car can reach while going on reverse in km/h.
       [Range(1, 10)]
@@ -43,19 +43,19 @@ public class PrometeoCarController : MonoBehaviour
       public int handbrakeDriftMultiplier = 5; // How much grip the car loses when the user hit the handbrake.
       [Space(10)]
       public Vector3 bodyMassCenter; // This is a vector that contains the center of mass of the car. I recommend to set this value
-                                    // in the points x = 0 and z = 0 of your car. You can select the value that you want in the y axis,
-                                    // however, you must notice that the higher this value is, the more unstable the car becomes.
-                                    // Usually the y value goes from 0 to 1.5.
+                                     // in the points x = 0 and z = 0 of your car. You can select the value that you want in the y axis,
+                                     // however, you must notice that the higher this value is, the more unstable the car becomes.
+                                     // Usually the y value goes from 0 to 1.5.
 
     //WHEELS
 
-      //[Header("WHEELS")]
+    //[Header("WHEELS")]
 
-      /*
-      The following variables are used to store the wheels' data of the car. We need both the mesh-only game objects and wheel
-      collider components of the wheels. The wheel collider components and 3D meshes of the wheels cannot come from the same
-      game object; they must be separate game objects.
-      */
+    /*
+    The following variables are used to store the wheels' data of the car. We need both the mesh-only game objects and wheel
+    collider components of the wheels. The wheel collider components and 3D meshes of the wheels cannot come from the same
+    game object; they must be separate game objects.
+    */
       public GameObject frontLeftMesh;
       public WheelCollider frontLeftCollider;
       [Space(10)]
@@ -164,6 +164,8 @@ public class PrometeoCarController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
+      move = gameObject.GetComponent<PlayerInput>();
       //In this part, we set the 'carRigidbody' value with the Rigidbody attached to this
       //gameObject. Also, we define the center of mass of the car with the Vector3 given
       //in the inspector.
@@ -269,7 +271,7 @@ public class PrometeoCarController : MonoBehaviour
     void Update()
     {
 
-      //CAR DATA
+        //CAR DATA
 
       // We determine the speed of the car.
       carSpeed = (2 * Mathf.PI * frontLeftCollider.radius * frontLeftCollider.rpm * 60) / 1000;
@@ -330,23 +332,28 @@ public class PrometeoCarController : MonoBehaviour
 
       }else{
 
-        if(Input.GetKey(KeyCode.W)){
+        if(Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.JoystickButton0)){
           CancelInvoke("DecelerateCar");
           deceleratingCar = false;
           GoForward();
         }
-        if(Input.GetKey(KeyCode.S)){
+        if(Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.JoystickButton1))
+            {
           CancelInvoke("DecelerateCar");
           deceleratingCar = false;
           GoReverse();
-        }
+            }
 
-        if(Input.GetKey(KeyCode.A)){
+        if(Input.GetKey(KeyCode.A) || Input.GetAxis("Horizontal") < 0){
           TurnLeft();
         }
-        if(Input.GetKey(KeyCode.D)){
+        if(Input.GetKey(KeyCode.D) || Input.GetAxis("Horizontal") > 0)
+            {
           TurnRight();
         }
+
+        Debug.Log(Input.GetAxis("Horizontal"));
+
         if(Input.GetKey(KeyCode.Space)){
           CancelInvoke("DecelerateCar");
           deceleratingCar = false;
@@ -355,14 +362,14 @@ public class PrometeoCarController : MonoBehaviour
         if(Input.GetKeyUp(KeyCode.Space)){
           RecoverTraction();
         }
-        if((!Input.GetKey(KeyCode.S) && !Input.GetKey(KeyCode.W))){
+        if((!Input.GetKey(KeyCode.S) && !Input.GetKey(KeyCode.W) && !Input.GetKey(KeyCode.JoystickButton1) && !Input.GetKey(KeyCode.JoystickButton0))){
           ThrottleOff();
         }
-        if((!Input.GetKey(KeyCode.S) && !Input.GetKey(KeyCode.W)) && !Input.GetKey(KeyCode.Space) && !deceleratingCar){
+        if((!Input.GetKey(KeyCode.S) && !Input.GetKey(KeyCode.W)) && !Input.GetKey(KeyCode.Space) && !Input.GetKey(KeyCode.JoystickButton1) && !Input.GetKey(KeyCode.JoystickButton0) && !deceleratingCar){
           InvokeRepeating("DecelerateCar", 0f, 0.1f);
           deceleratingCar = true;
         }
-        if(!Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.D) && steeringAxis != 0f){
+        if(!Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.D) && Input.GetAxis("Horizontal") == 0 && steeringAxis != 0f){
           ResetSteeringAngle();
         }
 

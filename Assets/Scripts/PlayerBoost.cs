@@ -21,7 +21,7 @@ public class PlayerBoost : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!isBoosting && Input.GetKeyDown(KeyCode.LeftShift))
+        if (!isBoosting && Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.JoystickButton5)) 
         {
             boostAlert.SetActive(false);
 

@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 4947960708184959390}
   - component: {fileID: 5333924408356096502}
   - component: {fileID: 2549659100456419354}
-  - component: {fileID: 1176349116355696332}
   - component: {fileID: 6792201775833901189}
   - component: {fileID: 1308832176338228004}
   m_Layer: 0
@@ -142,55 +141,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 2
---- !u!114 &1176349116355696332
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 231099024063092731}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0fefceefe666bb4682b272ec8c5bdd0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxSpeed: 50
-  maxReverseSpeed: 20
-  accelerationMultiplier: 5
-  maxSteeringAngle: 24
-  steeringSpeed: 0.416
-  brakeForce: 600
-  decelerationMultiplier: 7
-  handbrakeDriftMultiplier: 1
-  bodyMassCenter: {x: 0, y: 0, z: 0}
-  frontLeftMesh: {fileID: 1994390269521817840}
-  frontLeftCollider: {fileID: 7968575116286518899}
-  frontRightMesh: {fileID: 2064100099510278231}
-  frontRightCollider: {fileID: 8315777898999730320}
-  rearLeftMesh: {fileID: 5081592363594039855}
-  rearLeftCollider: {fileID: 1487530561985743668}
-  rearRightMesh: {fileID: 6103424207665489475}
-  rearRightCollider: {fileID: 7764366836127378104}
-  useEffects: 0
-  RLWParticleSystem: {fileID: 0}
-  RRWParticleSystem: {fileID: 0}
-  RLWTireSkid: {fileID: 0}
-  RRWTireSkid: {fileID: 0}
-  useUI: 0
-  carSpeedText: {fileID: 0}
-  useSounds: 0
-  carEngineSound: {fileID: 6006581365572728232}
-  tireScreechSound: {fileID: 0}
-  useTouchControls: 0
-  throttleButton: {fileID: 0}
-  reverseButton: {fileID: 0}
-  turnRightButton: {fileID: 0}
-  turnLeftButton: {fileID: 0}
-  handbrakeButton: {fileID: 0}
-  carSpeed: 0
-  carIsBoosting: 0
-  isDrifting: 0
-  isTractionLocked: 0
 --- !u!114 &6792201775833901189
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -217,6 +167,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b048df7fcb7017f41870ada5635d05a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  boostAlert: {fileID: 0}
 --- !u!1 &1064184669733621528
 GameObject:
   m_ObjectHideFlags: 0
