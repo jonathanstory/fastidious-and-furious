@@ -8,6 +8,10 @@ P.S: If you need more cars, you can check my other vehicle assets on the Unity A
 something useful for your game. Best regards, Mena.
 */
 
+
+// TEAM 6 NOTES: Only using this script for initial gameplay showcase. Building custom script for next week.
+
+
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -331,7 +335,9 @@ public class PrometeoCarController : MonoBehaviour
         }
 
       }else{
+        
 
+        // Added controller support - Team 6
         if(Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.JoystickButton0)){
           CancelInvoke("DecelerateCar");
           deceleratingCar = false;
