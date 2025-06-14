@@ -62,7 +62,7 @@ public class FleeFromPlayer : MonoBehaviour
         // Rotate to face movement direction
         if (agent.velocity.sqrMagnitude > 0.1f)
         {
-            Vector3 lookDir = new Vector3(agent.velocity.x, 0f, agent.velocity.z);
+            Vector3 lookDir = new Vector3(agent.velocity.y, 0f, agent.velocity.x);
             Quaternion lookRot = Quaternion.LookRotation(lookDir);
             transform.rotation = Quaternion.Slerp(transform.rotation, lookRot, Time.deltaTime * 5f);
         }
