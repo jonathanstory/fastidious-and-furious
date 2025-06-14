@@ -8,7 +8,7 @@ namespace LevelTest
     {
         private void OnTriggerEnter(Collider other)
         {
-            if (other.gameObject.tag == "Player")
+            if (other.gameObject.tag == "Horse")
             {
                 ScoreTest.AddScore();
                 Destroy(gameObject);
