@@ -1,0 +1,98 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class PlayerController : MonoBehaviour
+{
+
+    Rigidbody playerRb;
+
+    [Header("Player Statistics")]
+    [Space(20)]
+    [Range (10,30)]
+    [SerializeField] private float acceleration; // Rate of acceleration
+    [Space(10)]
+    [SerializeField] private float maxSpeed; // Maximum speed in km/h
+    [Space(10)]
+    [SerializeField] private float maxReverseSpeed; // Maximum reverse speed in km/h
+    [Space(10)]
+    [SerializeField] private float boostSpeed; // Extra speed from boost in km/h
+    [Space(10)]
+    [Range(1,10)]
+    [SerializeField] private float turnSpeed; // Rate at which horse turns
+    [Space(10)]
+    [Range(10, 30)]
+    [SerializeField] private float brakeForce; // Rate at which car brakes and reverses
+    [Space(10)]
+    [Range(1, 50)]
+    [SerializeField] private float gripForce; // Strength that the car grips the road with, no drift included
+
+
+
+
+    private bool isAccelerating;
+    private float turnRate = 0f;
+    private float speed;
+    private bool carIsBoosting = false;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        playerRb = GetComponent<Rigidbody>();
+        maxSpeed /= 3.6f; // Convert from Unity's m/s to km/h
+        maxReverseSpeed /= 3.6f;
+        boostSpeed /= 3.6f;
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (playerRb.velocity.z < maxSpeed && (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S)))
+            isAccelerating = true;
+        else
+            isAccelerating = false;
+
+        if(Input.GetKey(KeyCode.A))
+        {
+            turnRate -= .001f * turnSpeed;
+        }
+
+        if (Input.GetKey(KeyCode.D))
+        {
+            turnRate += .001f * turnSpeed;
+        }
+
+        if (Input.GetKey(KeyCode.S))
+        {
+            speed += -brakeForce;
+        }
+        else
+            speed = acceleration;
+
+        if (!carIsBoosting)
+            speed = Mathf.Clamp(speed, -maxReverseSpeed, maxSpeed);
+        else
+            speed = Mathf.Clamp(speed, -maxReverseSpeed, maxSpeed + boostSpeed);
+
+
+        turnRate = Mathf.Clamp(turnRate, -turnSpeed/10, turnSpeed/10);
+
+        if (!Input.GetKey(KeyCode.D) && !Input.GetKey(KeyCode.A))
+            turnRate = Mathf.Lerp(turnRate, 0, .04f);
+
+        Debug.Log(turnRate);
+
+        if(playerRb.velocity.z != 0)
+            this.transform.Rotate(0, turnRate, 0);
+
+    }
+
+
+
+    private void FixedUpdate()
+    {
+        if (isAccelerating)
+            playerRb.AddRelativeForce(turnRate * gripForce, 0, speed, ForceMode.Acceleration);
+    }
+
+}
