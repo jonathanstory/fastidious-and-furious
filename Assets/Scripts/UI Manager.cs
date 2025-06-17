@@ -1,11 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Build.Content;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
+using TMPro;
 
 public class UIManager : MonoBehaviour
 {
+    [Header("Hearts")]
+    [SerializeField] Sprite heartFull;
+    [SerializeField] Sprite heartEmpty;
+    [SerializeField] Image[] hearts = new Image[3];
+
+    [Header("Score")]
+    [SerializeField] TextMeshProUGUI scoreText;
+
     public void OnButtonClick()
     {
         if (EventSystem.current.currentSelectedGameObject.name == "Quit")
@@ -27,5 +36,48 @@ public class UIManager : MonoBehaviour
             GameController.Instance.QuitGame();
         }
 
+    }
+
+    private void Update()
+    {
+        UpdateHealth();
+        UpdateScore();
+    }
+
+    void UpdateHealth()
+    {
+        Debug.Log("health - " + GameController.playerHealth);
+
+        if (GameController.playerHealth >= 1)
+        {
+            hearts[0].sprite = heartFull;
+        }
+        else
+        {
+            hearts[0].sprite = heartEmpty;
+        }
+
+        if (GameController.playerHealth >= 2)
+        {
+            hearts[1].sprite = heartFull;
+        }
+        else
+        {
+            hearts[1].sprite = heartEmpty;
+        }
+
+        if (GameController.playerHealth >= 3)
+        {
+            hearts[2].sprite = heartFull;
+        }
+        else
+        {
+            hearts[2].sprite = heartEmpty;
+        }
+    }
+
+    void UpdateScore()
+    {
+        scoreText.text = "x " + GameController.score;
     }
 }

@@ -22,11 +22,15 @@ public class FleeFromPlayer : MonoBehaviour
     private bool isThrown = false;
     private float cooldownTimer = 0f;
 
+    Collider thisCollider;
+
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player")?.transform;
         agent = GetComponent<NavMeshAgent>();
         rb = GetComponent<Rigidbody>();
+
+        thisCollider = GetComponent<Collider>();
 
         agent.updateRotation = false;
         rb.isKinematic = true; // Start with physics off
@@ -85,6 +89,8 @@ public class FleeFromPlayer : MonoBehaviour
     {
         if (isThrown) return;
         isThrown = true;
+
+        thisCollider.enabled = false;
 
         agent.enabled = false;
         rb.isKinematic = false;

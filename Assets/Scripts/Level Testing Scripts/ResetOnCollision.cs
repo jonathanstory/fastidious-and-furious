@@ -11,6 +11,7 @@ namespace LevelTest
 
         [HideInInspector] public bool canReset = true;
 
+        /*
         private void OnCollisionEnter(Collision collision)
         {
             if (!canReset) { return; }
@@ -34,6 +35,6 @@ namespace LevelTest
 
                 Debug.Log(GameController.playerHealth);
             }
-        }
+        }*/
     }
 }

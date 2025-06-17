@@ -8,6 +8,8 @@ public class GameController : MonoBehaviour
 
     static public int score;
     static public int playerHealth;
+    static public readonly int maxHealth = 3;
+
     static public bool paused = false;
     static public bool kingHit = false;
     static public bool options = false;
@@ -37,7 +39,9 @@ public class GameController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        //StartGame();
+
+        //Debug.Log("player heatlh = " + playerHealth + "; max health =  " + maxHealth);
     }
 
     // Update is called once per frame
@@ -68,23 +72,26 @@ public class GameController : MonoBehaviour
                 GameWin();
 
             if (playerHealth <= 0)
+            {
+                playerHealth = maxHealth;
+                isGameOver = true;
                 GameOver();
-                playerHealth += 5;
+            }
 
-            if (paused && !options)
+            if (paused && !options && !isGameOver)
             {
                 Time.timeScale = 0f;
                 HUD.SetActive(false);
                 pauseMenu.SetActive(true);
             }
-            else if(paused && options)
+            else if(paused && options && !isGameOver)
             {
                 Time.timeScale = 0f;
                 HUD.SetActive(false);
                 pauseMenu.SetActive(false);
                 optionsMenu.SetActive(true);
             }
-            else
+            else if(!isGameOver)
             {
                 pauseMenu.SetActive(false);
                 optionsMenu.SetActive(false);
@@ -105,7 +112,7 @@ public class GameController : MonoBehaviour
     IEnumerator GameOverSequence()
     {
         yield return new WaitForSecondsRealtime(3);
-        gameOverText.SetActive(true);
+        gameOverText?.SetActive(true);
         yield return new WaitForSecondsRealtime(3);
         Time.timeScale = 1f;
         loadMenu();
@@ -113,14 +120,17 @@ public class GameController : MonoBehaviour
 
     void GameWin()
     {
-        SceneManager.LoadScene(3);
+        loadMenu();
     }
 
     public void StartGame()
     {
-        SceneManager.LoadScene(1);
-        playerHealth = 10;
+
+        playerHealth = maxHealth;
         score = 0;
+        isGameOver = false;
+        SceneManager.LoadScene(1);
+
     }
 
     public void QuitGame()

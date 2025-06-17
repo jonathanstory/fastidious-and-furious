@@ -6,6 +6,10 @@ public class PlayerController : MonoBehaviour
 {
 
     AudioSource audioSource;
+    Animator animator;
+
+    bool changeMovementStateOnce;
+
     Rigidbody playerRb;
 
     [Header("Player Statistics")]
@@ -41,6 +45,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        animator = GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>();
 
         playerRb = GetComponent<Rigidbody>();
@@ -85,12 +90,27 @@ public class PlayerController : MonoBehaviour
         if (!Input.GetKey(KeyCode.D) && !Input.GetKey(KeyCode.A))
             turnRate = Mathf.Lerp(turnRate, 0, .04f);
 
-        if (playerRb.velocity.z != 0 && GameController.paused == false)
+        if (playerRb.velocity.z != 0 && GameController.paused == false && GameController.isGameOver == false)
             this.transform.Rotate(0, turnRate, 0);
 
-        if (isAccelerating) { if (!audioSource.isPlaying) { audioSource.Play(); } }
-        else {
-            if (audioSource.isPlaying) { audioSource.Stop(); } }
+        if (isAccelerating)
+        {
+            if (changeMovementStateOnce) { return; }
+
+            changeMovementStateOnce = true;
+
+            animator.Play("movement");
+            audioSource.Play();
+        }
+        else
+        {
+            if (!changeMovementStateOnce) { return; }
+
+            changeMovementStateOnce = false;
+
+            animator.Play("idle");
+            audioSource.Stop();
+        }
     }
 
 
@@ -119,6 +139,11 @@ public class PlayerController : MonoBehaviour
         {
             audioSource.PlayOneShot(getHurt);
             GameController.playerHealth -= 1;
+        }
+        if (other.CompareTag("Chaser"))
+        {
+            GameController.playerHealth -= 1;
+            audioSource.PlayOneShot(getHurt);
         }
     }
 }
