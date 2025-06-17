@@ -80,9 +80,7 @@ public class PlayerController : MonoBehaviour
         if (!Input.GetKey(KeyCode.D) && !Input.GetKey(KeyCode.A))
             turnRate = Mathf.Lerp(turnRate, 0, .04f);
 
-        Debug.Log(turnRate);
-
-        if (playerRb.velocity.z != 0)
+        if (playerRb.velocity.z != 0 && GameController.paused == false)
             this.transform.Rotate(0, turnRate, 0);
 
     }

@@ -10,10 +10,16 @@ public class GameController : MonoBehaviour
     static public int playerHealth;
     static public bool paused = false;
     static public bool kingHit = false;
+    static public bool options = false;
 
     public static GameController Instance;
 
     private Scene scene;
+    private GameObject UI;
+    private GameObject pauseMenu;
+    private GameObject optionsMenu;
+    private GameObject HUD;
+
 
     void Awake()
     {
@@ -40,11 +46,17 @@ public class GameController : MonoBehaviour
         if(scene.name == "LevelTesting")
         {
 
-            if (Input.GetKey(KeyCode.Escape) && paused == false)
+            UI = GameObject.Find("Canvases");
+
+            HUD = UI.transform.GetChild(0).gameObject;
+            pauseMenu = UI.transform.GetChild(1).gameObject;
+            optionsMenu = UI.transform.GetChild(2).gameObject;
+
+            if (Input.GetKeyDown(KeyCode.Escape) && paused == false)
             {
                 paused = true;
             }
-            if (Input.GetKey(KeyCode.Escape) && paused == true)
+            else if(Input.GetKeyDown(KeyCode.Escape) && paused == true)
             {
                 paused = false;
             }
@@ -54,11 +66,27 @@ public class GameController : MonoBehaviour
 
             if (playerHealth <= 0)
                 GameOver();
+
+            if (paused && !options)
+            {
+                Time.timeScale = 0f;
+                HUD.SetActive(false);
+                pauseMenu.SetActive(true);
+            }
+            else
+            {
+                pauseMenu.SetActive(false);
+                optionsMenu.SetActive(false);
+                HUD.SetActive(true);
+                Time.timeScale = 1f;
+            }
         }
+
         else if(scene.name == "MainMenu")
         {
 
         }
+
         else
         {
             if (Input.GetKey(KeyCode.R))
@@ -66,7 +94,7 @@ public class GameController : MonoBehaviour
             if (Input.GetKey(KeyCode.Q))
                 Application.Quit();
         }
-        Debug.Log(scene.name);
+
     }
 
     void GameOver()
