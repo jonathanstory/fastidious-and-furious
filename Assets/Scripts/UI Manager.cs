@@ -18,6 +18,14 @@ public class UIManager : MonoBehaviour
         {
             GameController.paused = false;
         }
+        if (EventSystem.current.currentSelectedGameObject.name == "StartButton")
+        {
+            GameController.Instance.StartGame();
+        }
+        if (EventSystem.current.currentSelectedGameObject.name == "QuitButton")
+        {
+            GameController.Instance.QuitGame();
+        }
 
     }
 }

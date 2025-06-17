@@ -107,6 +107,7 @@ public class GameController : MonoBehaviour
         yield return new WaitForSecondsRealtime(3);
         gameOverText.SetActive(true);
         yield return new WaitForSecondsRealtime(3);
+        Time.timeScale = 1f;
         loadMenu();
     }
 
@@ -118,7 +119,7 @@ public class GameController : MonoBehaviour
     public void StartGame()
     {
         SceneManager.LoadScene(1);
-        playerHealth = 0;
+        playerHealth = 10;
         score = 0;
     }
 
