@@ -98,12 +98,21 @@ public class PlayerController : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        FleeFromPlayer npc = other.GetComponent<FleeFromPlayer>();
-        if (npc != null)
+        if (other.CompareTag("NPC"))
         {
-            Debug.Log("Triggered NPC");
-            npc.OnPlayerHit(transform.forward);
+            FleeFromPlayer npc = other.GetComponent<FleeFromPlayer>();
+            if (npc != null)
+            {
+                Debug.Log("Triggered NPC");
+                npc.OnPlayerHit(transform.forward);
+                GameController.score += 1;
+            }
+        }
+        if (other.CompareTag("Spikes"))
+        {
+            GameController.playerHealth -= 1;
         }
     }
-
 }
+
+
