@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour
     [Range(10, 30)]
     [SerializeField] private float brakeForce; // Rate at which car brakes and reverses
     [Space(10)]
-    [Range(1, 50)]
+    [Range(1, 200)]
     [SerializeField] private float gripForce; // Strength that the car grips the road with, no drift included
 
 
