@@ -19,6 +19,7 @@ public class GameController : MonoBehaviour
     private GameObject pauseMenu;
     private GameObject optionsMenu;
     private GameObject HUD;
+    private GameObject gameOverText;
 
 
     void Awake()
@@ -51,6 +52,7 @@ public class GameController : MonoBehaviour
             HUD = UI.transform.GetChild(0).gameObject;
             pauseMenu = UI.transform.GetChild(1).gameObject;
             optionsMenu = UI.transform.GetChild(2).gameObject;
+            gameOverText = UI.transform.GetChild(3).gameObject;
 
             if (Input.GetKeyDown(KeyCode.Escape) && paused == false)
             {
@@ -66,6 +68,7 @@ public class GameController : MonoBehaviour
 
             if (playerHealth <= 0)
                 GameOver();
+                playerHealth += 1;
 
             if (paused && !options)
             {
@@ -89,25 +92,20 @@ public class GameController : MonoBehaviour
                 Time.timeScale = 1f;
             }
         }
-
-        else if(scene.name == "MainMenu")
-        {
-
-        }
-
-        else
-        {
-            if (Input.GetKey(KeyCode.R))
-                SceneManager.LoadScene(0);
-            if (Input.GetKey(KeyCode.Q))
-                Application.Quit();
-        }
-
     }
 
     void GameOver()
     {
-        SceneManager.LoadScene(2);
+        Time.timeScale = 0.2f;
+        StartCoroutine(GameOverSequence());
+    }
+
+    IEnumerator GameOverSequence()
+    {
+        yield return new WaitForSecondsRealtime(3);
+        gameOverText.SetActive(true);
+        yield return new WaitForSecondsRealtime(3);
+        loadMenu();
     }
 
     void GameWin()
@@ -118,13 +116,19 @@ public class GameController : MonoBehaviour
     public void StartGame()
     {
         SceneManager.LoadScene(1);
-        playerHealth = 10;
+        playerHealth = 0;
         score = 0;
     }
 
     public void QuitGame()
     {
         Application.Quit();
+    }
+
+    public void loadMenu()
+    {
+
+        SceneManager.LoadScene(0);
     }
 
 }
