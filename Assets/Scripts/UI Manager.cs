@@ -11,10 +11,9 @@ public class UIManager : MonoBehaviour
         if (EventSystem.current.currentSelectedGameObject.name == "Quit")
         {
             GameController.Instance.QuitGame();
-            Debug.Log("Quit");
         }
         if (EventSystem.current.currentSelectedGameObject.name == "Options")
-            GameController.Instance.QuitGame();
+            GameController.options = true;
         if (EventSystem.current.currentSelectedGameObject.name == "Continue")
         {
             GameController.paused = false;

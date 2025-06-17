@@ -18,7 +18,8 @@ namespace LevelTest
 
             if (collision.collider.gameObject.tag == "Horse")
             {
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+                GameController.playerHealth -= 1;
+                Debug.Log(GameController.playerHealth);
             }
         }
 
@@ -29,7 +30,9 @@ namespace LevelTest
 
             if (other.gameObject.tag == "Player")
             {
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+                GameController.playerHealth -= 1;
+
+                Debug.Log(GameController.playerHealth);
             }
         }
     }

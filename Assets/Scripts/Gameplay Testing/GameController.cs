@@ -73,10 +73,18 @@ public class GameController : MonoBehaviour
                 HUD.SetActive(false);
                 pauseMenu.SetActive(true);
             }
+            else if(paused && options)
+            {
+                Time.timeScale = 0f;
+                HUD.SetActive(false);
+                pauseMenu.SetActive(false);
+                optionsMenu.SetActive(true);
+            }
             else
             {
                 pauseMenu.SetActive(false);
                 optionsMenu.SetActive(false);
+                options = false;
                 HUD.SetActive(true);
                 Time.timeScale = 1f;
             }
