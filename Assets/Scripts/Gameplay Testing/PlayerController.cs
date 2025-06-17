@@ -90,7 +90,7 @@ public class PlayerController : MonoBehaviour
         if (!Input.GetKey(KeyCode.D) && !Input.GetKey(KeyCode.A))
             turnRate = Mathf.Lerp(turnRate, 0, .04f);
 
-        if (playerRb.velocity.z != 0 && GameController.paused == false)
+        if (playerRb.velocity.z != 0 && GameController.paused == false && GameController.isGameOver == false)
             this.transform.Rotate(0, turnRate, 0);
 
         if (isAccelerating)
@@ -139,6 +139,11 @@ public class PlayerController : MonoBehaviour
         {
             audioSource.PlayOneShot(getHurt);
             GameController.playerHealth -= 1;
+        }
+        if (other.CompareTag("Chaser"))
+        {
+            GameController.playerHealth -= 1;
+            audioSource.PlayOneShot(getHurt);
         }
     }
 }

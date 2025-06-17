@@ -7,6 +7,7 @@ TagManager:
   - Horse
   - Spikes
   - NPC
+  - Chaser
   layers:
   - Default
   - TransparentFX

@@ -15789,9 +15789,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 443849071029483031, guid: 2efe64b3812e44d4d8e0c491ee1d72a4, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2819209955747339562, guid: 2efe64b3812e44d4d8e0c491ee1d72a4, type: 3}
       propertyPath: m_Name
       value: Enemy (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2819209955747339562, guid: 2efe64b3812e44d4d8e0c491ee1d72a4, type: 3}
+      propertyPath: m_TagString
+      value: Chaser
       objectReference: {fileID: 0}
     - target: {fileID: 4708309107314012979, guid: 2efe64b3812e44d4d8e0c491ee1d72a4, type: 3}
       propertyPath: target
@@ -29282,9 +29290,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 443849071029483031, guid: 2efe64b3812e44d4d8e0c491ee1d72a4, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2819209955747339562, guid: 2efe64b3812e44d4d8e0c491ee1d72a4, type: 3}
       propertyPath: m_Name
       value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 2819209955747339562, guid: 2efe64b3812e44d4d8e0c491ee1d72a4, type: 3}
+      propertyPath: m_TagString
+      value: Chaser
       objectReference: {fileID: 0}
     - target: {fileID: 2975913172577495000, guid: 2efe64b3812e44d4d8e0c491ee1d72a4, type: 3}
       propertyPath: m_PlayOnAwake
@@ -33167,9 +33183,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 443849071029483031, guid: 2efe64b3812e44d4d8e0c491ee1d72a4, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2819209955747339562, guid: 2efe64b3812e44d4d8e0c491ee1d72a4, type: 3}
       propertyPath: m_Name
       value: Enemy (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2819209955747339562, guid: 2efe64b3812e44d4d8e0c491ee1d72a4, type: 3}
+      propertyPath: m_TagString
+      value: Chaser
       objectReference: {fileID: 0}
     - target: {fileID: 4708309107314012979, guid: 2efe64b3812e44d4d8e0c491ee1d72a4, type: 3}
       propertyPath: target
@@ -39027,6 +39051,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1494227178781565423, guid: 2e9527b3faf19ec448e85844331d9815, type: 3}
+      propertyPath: gripForce
+      value: 66
+      objectReference: {fileID: 0}
+    - target: {fileID: 2002799954326816294, guid: 2e9527b3faf19ec448e85844331d9815, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2994689973089171348, guid: 2e9527b3faf19ec448e85844331d9815, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 3252224991405807402, guid: bb1768f988a78d844a92767664856f60, type: 3}
+    - target: {fileID: 5059573376578377030, guid: 2e9527b3faf19ec448e85844331d9815, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 52bf76f2ccc5e8648ae854da62535462, type: 2}
     - target: {fileID: 5162247681967241691, guid: 2e9527b3faf19ec448e85844331d9815, type: 3}
       propertyPath: m_LocalPosition.x
       value: 40.77
@@ -39075,6 +39115,14 @@ PrefabInstance:
       propertyPath: speedText
       value: 
       objectReference: {fileID: 1067312337}
+    - target: {fileID: 7084097274038646726, guid: 2e9527b3faf19ec448e85844331d9815, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 3252224991405807402, guid: bb1768f988a78d844a92767664856f60, type: 3}
+    - target: {fileID: 7355056460440737539, guid: 2e9527b3faf19ec448e85844331d9815, type: 3}
+      propertyPath: m_TagString
+      value: Horse
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
