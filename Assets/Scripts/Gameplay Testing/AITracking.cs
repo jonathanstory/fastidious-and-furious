@@ -22,9 +22,14 @@ public class AITracking : MonoBehaviour
     Vector3 startingPosition; // using this to calculate wandering instead of transform.position
     LevelTest.ResetOnCollision resetOnCollisionComponent;
 
+    AudioSource audioSource;
+    [Header("Audio SFX")]
+    [SerializeField] AudioClip shout;
+
     // Start is called before the first frame update
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         m_Enemy = GetComponent<NavMeshAgent>();
         timer = setWanderTime;
 
@@ -43,12 +48,16 @@ public class AITracking : MonoBehaviour
 
         if (checkDistance.x <= triggerDistance.x && checkDistance.z <= triggerDistance.z)
         {
+            if (isWandering) { audioSource.PlayOneShot(shout); }
+
             isWandering = false;
         }
         else
         {
             if (!isWandering) // if player enters and then leaves enemy wandering range, enemy will start chasing
             {
+                if (!playerIsFound && !audioSource.isPlaying) { audioSource.Play(); }
+
                 playerIsFound = true;
 
                 resetOnCollisionComponent.canReset = true;

@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
 
+    AudioSource audioSource;
     Rigidbody playerRb;
 
     [Header("Player Statistics")]
@@ -27,7 +28,9 @@ public class PlayerController : MonoBehaviour
     [Range(1, 200)]
     [SerializeField] private float gripForce; // Strength that the car grips the road with, no drift included
 
-
+    [Header("Sounds")]
+    [SerializeField] AudioClip getHurt;
+    [SerializeField] AudioClip punchNpc;
 
 
     private bool isAccelerating;
@@ -38,6 +41,8 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
+
         playerRb = GetComponent<Rigidbody>();
         maxSpeed /= 3.6f; // Convert from Unity's m/s to km/h
         maxReverseSpeed /= 3.6f;
@@ -83,6 +88,9 @@ public class PlayerController : MonoBehaviour
         if (playerRb.velocity.z != 0 && GameController.paused == false)
             this.transform.Rotate(0, turnRate, 0);
 
+        if (isAccelerating) { if (!audioSource.isPlaying) { audioSource.Play(); } }
+        else {
+            if (audioSource.isPlaying) { audioSource.Stop(); } }
     }
 
 
@@ -102,12 +110,14 @@ public class PlayerController : MonoBehaviour
             if (npc != null)
             {
                 Debug.Log("Triggered NPC");
+                audioSource.PlayOneShot(punchNpc);
                 npc.OnPlayerHit(transform.forward);
                 GameController.score += 1;
             }
         }
         if (other.CompareTag("Spikes"))
         {
+            audioSource.PlayOneShot(getHurt);
             GameController.playerHealth -= 1;
         }
     }
