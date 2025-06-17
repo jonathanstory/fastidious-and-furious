@@ -20206,6 +20206,9 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 7011806126540502475, guid: d87305570f867d04489596a2fbdf1428, type: 3}
   m_PrefabInstance: {fileID: 946880102}
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4675678653929961889, guid: c0aadc37cb8b83c4d924c8d28caa623a, type: 3}
+  m_PrefabInstance: {fileID: 937418598}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &948239070
 --- !u!1001 &939715695
@@ -30637,6 +30640,37 @@ CanvasRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 64b322cd16615714987f11b19af3b93f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 64b322cd16615714987f11b19af3b93f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 64b322cd16615714987f11b19af3b93f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 64b322cd16615714987f11b19af3b93f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 64b322cd16615714987f11b19af3b93f, type: 3}
+      propertyPath: m_Name
+      value: BridgeDefault
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects:
+    - {fileID: -8700617353114198275, guid: 64b322cd16615714987f11b19af3b93f, type: 3}
+    - {fileID: 65702495048144492, guid: 64b322cd16615714987f11b19af3b93f, type: 3}
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 64b322cd16615714987f11b19af3b93f, type: 3}
+--- !u!4 &1503527536 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 64b322cd16615714987f11b19af3b93f, type: 3}
+  m_PrefabInstance: {fileID: 1503527535}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1503874044}
   m_CullTransparentMesh: 1
