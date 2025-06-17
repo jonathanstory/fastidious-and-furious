@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
 
     [Header("Player Statistics")]
     [Space(20)]
-    [Range (10,30)]
+    [Range(10, 30)]
     [SerializeField] private float acceleration; // Rate of acceleration
     [Space(10)]
     [SerializeField] private float maxSpeed; // Maximum speed in km/h
@@ -18,7 +18,7 @@ public class PlayerController : MonoBehaviour
     [Space(10)]
     [SerializeField] private float boostSpeed; // Extra speed from boost in km/h
     [Space(10)]
-    [Range(1,10)]
+    [Range(1, 10)]
     [SerializeField] private float turnSpeed; // Rate at which horse turns
     [Space(10)]
     [Range(10, 30)]
@@ -52,7 +52,7 @@ public class PlayerController : MonoBehaviour
         else
             isAccelerating = false;
 
-        if(Input.GetKey(KeyCode.A))
+        if (Input.GetKey(KeyCode.A))
         {
             turnRate -= .001f * turnSpeed;
         }
@@ -75,14 +75,14 @@ public class PlayerController : MonoBehaviour
             speed = Mathf.Clamp(speed, -maxReverseSpeed, maxSpeed + boostSpeed);
 
 
-        turnRate = Mathf.Clamp(turnRate, -turnSpeed/10, turnSpeed/10);
+        turnRate = Mathf.Clamp(turnRate, -turnSpeed / 10, turnSpeed / 10);
 
         if (!Input.GetKey(KeyCode.D) && !Input.GetKey(KeyCode.A))
             turnRate = Mathf.Lerp(turnRate, 0, .04f);
 
         Debug.Log(turnRate);
 
-        if(playerRb.velocity.z != 0)
+        if (playerRb.velocity.z != 0)
             this.transform.Rotate(0, turnRate, 0);
 
     }
@@ -94,5 +94,17 @@ public class PlayerController : MonoBehaviour
         if (isAccelerating)
             playerRb.AddRelativeForce(turnRate * gripForce, 0, speed, ForceMode.Acceleration);
     }
+
+
+    void OnTriggerEnter(Collider other)
+    {
+        FleeFromPlayer npc = other.GetComponent<FleeFromPlayer>();
+        if (npc != null)
+        {
+            Debug.Log("Triggered NPC");
+            npc.OnPlayerHit(transform.forward);
+        }
+    }
+
 
 }
