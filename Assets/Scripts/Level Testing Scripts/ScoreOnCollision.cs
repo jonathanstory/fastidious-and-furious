@@ -6,6 +6,7 @@ namespace LevelTest
 {
     public class ScoreOnCollision : MonoBehaviour
     {
+
         private void OnTriggerEnter(Collider other)
         {
             if (other.gameObject.tag == "Horse")

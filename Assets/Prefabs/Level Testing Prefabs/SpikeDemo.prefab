@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 932834467782747058}
   m_Layer: 0
   m_Name: SpikeDemo
-  m_TagString: Untagged
+  m_TagString: Spikes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -70,6 +70,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isTrigger: 1
+  canReset: 1
 --- !u!1 &7469834079984468109
 GameObject:
   m_ObjectHideFlags: 0

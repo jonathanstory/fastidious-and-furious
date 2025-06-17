@@ -9,9 +9,9 @@ namespace LevelTest
     {
         private void OnTriggerEnter(Collider other)
         {
-            if (other.gameObject.tag == "Player")
+            if (other.gameObject.tag == "Horse")
             {
-                SceneManager.LoadScene(1);
+                GameController.kingHit = true;
             }
         }
     }
