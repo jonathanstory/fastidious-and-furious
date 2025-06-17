@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1711691952704596679}
   - component: {fileID: 793917803697337616}
   - component: {fileID: 2329833435488432629}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: NPC
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -220,7 +220,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3053643255400094013}
   - component: {fileID: 3505069141349549911}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: Minimap Reference
   m_TagString: Untagged
   m_Icon: {fileID: 0}
