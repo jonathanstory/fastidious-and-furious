@@ -41,25 +41,25 @@ public class AITracking : MonoBehaviour
     {
         checkDistance = new Vector3(Mathf.Abs(target.position.x - this.transform.position.x), 0, Mathf.Abs(target.position.z - this.transform.position.z));
 
-        if (checkDistance.x <= triggerDistance.x && checkDistance.z <= triggerDistance.z)
+        /*Temporarily removing this because AI rushes you way too fast
+         * 
+         * if (checkDistance.x <= triggerDistance.x && checkDistance.z <= triggerDistance.z)
+        */
+
+        if (transform.position.x - 2 > target.position.x)
         {
             isWandering = false;
-           // playerIsFound = true;
+            playerIsFound = true;
 
-           // resetOnCollisionComponent.canReset = true;
+            resetOnCollisionComponent.canReset = true;
         }
+
+        /* temporarily removing this because the AI can be a bit easy to evade initially
         else
         {
-            if (!isWandering) // if player has entered radius, wait until player leaves radius to start chasing
-            {
-                playerIsFound = true;
-
-                resetOnCollisionComponent.canReset = true;
-            }
-
-           // playerIsFound = false;
-           // isWandering = true;
-        }
+            playerIsFound = false;
+            isWandering = true;
+        }*/
 
 
 
