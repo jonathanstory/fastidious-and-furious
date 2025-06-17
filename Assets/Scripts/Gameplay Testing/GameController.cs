@@ -109,7 +109,7 @@ public class GameController : MonoBehaviour
     IEnumerator GameOverSequence()
     {
         yield return new WaitForSecondsRealtime(3);
-        gameOverText.SetActive(true);
+        gameOverText?.SetActive(true);
         yield return new WaitForSecondsRealtime(3);
         Time.timeScale = 1f;
         loadMenu();
