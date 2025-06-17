@@ -11,6 +11,7 @@ public class GameController : MonoBehaviour
     static public bool paused = false;
     static public bool kingHit = false;
     static public bool options = false;
+    static public bool isGameOver = false;
 
     public static GameController Instance;
 
@@ -68,7 +69,7 @@ public class GameController : MonoBehaviour
 
             if (playerHealth <= 0)
                 GameOver();
-                playerHealth += 1;
+                playerHealth += 5;
 
             if (paused && !options)
             {
@@ -96,6 +97,7 @@ public class GameController : MonoBehaviour
 
     void GameOver()
     {
+        HUD.SetActive(false);
         Time.timeScale = 0.2f;
         StartCoroutine(GameOverSequence());
     }
