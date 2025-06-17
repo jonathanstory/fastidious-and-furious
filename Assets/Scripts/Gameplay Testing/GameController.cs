@@ -8,6 +8,8 @@ public class GameController : MonoBehaviour
 
     static public int score;
     static public int playerHealth;
+    static public readonly int maxHealth = 3;
+
     static public bool paused = false;
     static public bool kingHit = false;
     static public bool options = false;
@@ -37,7 +39,9 @@ public class GameController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        StartGame();
+
+        Debug.Log("player heatlh = " + playerHealth + "; max health =  " + maxHealth);
     }
 
     // Update is called once per frame
@@ -69,7 +73,7 @@ public class GameController : MonoBehaviour
 
             if (playerHealth <= 0)
                 GameOver();
-                playerHealth += 5;
+                //playerHealth += 5;
 
             if (paused && !options)
             {
@@ -119,7 +123,7 @@ public class GameController : MonoBehaviour
     public void StartGame()
     {
         SceneManager.LoadScene(1);
-        playerHealth = 10;
+        playerHealth = maxHealth;
         score = 0;
     }
 
