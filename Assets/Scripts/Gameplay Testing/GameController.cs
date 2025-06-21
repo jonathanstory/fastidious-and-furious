@@ -59,11 +59,11 @@ public class GameController : MonoBehaviour
             optionsMenu = UI.transform.GetChild(2).gameObject;
             gameOverText = UI.transform.GetChild(3).gameObject;
 
-            if (Input.GetKeyDown(KeyCode.Escape) && paused == false)
+            if ((Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.JoystickButton7)) && paused == false)
             {
                 paused = true;
             }
-            else if(Input.GetKeyDown(KeyCode.Escape) && paused == true)
+            else if((Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.JoystickButton7)) && paused == true)
             {
                 paused = false;
             }

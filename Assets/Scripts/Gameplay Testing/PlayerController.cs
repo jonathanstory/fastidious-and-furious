@@ -57,22 +57,23 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (playerRb.velocity.z < maxSpeed && (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S)))
+        if (playerRb.velocity.z < maxSpeed && (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S) 
+            || Input.GetKey(KeyCode.JoystickButton0) || Input.GetKey(KeyCode.JoystickButton1)))
             isAccelerating = true;
         else
             isAccelerating = false;
 
-        if (Input.GetKey(KeyCode.A))
+        if (Input.GetKey(KeyCode.A) || Input.GetAxis("Horizontal") == -1)
         {
             turnRate -= .001f * turnSpeed;
         }
 
-        if (Input.GetKey(KeyCode.D))
+        if (Input.GetKey(KeyCode.D) || Input.GetAxis("Horizontal") == 1)
         {
             turnRate += .001f * turnSpeed;
         }
 
-        if (Input.GetKey(KeyCode.S))
+        if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.JoystickButton1))
         {
             speed += -brakeForce;
         }
@@ -82,8 +83,10 @@ public class PlayerController : MonoBehaviour
         if (!carIsBoosting)
             speed = Mathf.Clamp(speed, -maxReverseSpeed, maxSpeed);
         else
+        {
             speed = Mathf.Clamp(speed, -maxReverseSpeed, maxSpeed + boostSpeed);
-
+            speed += boostSpeed;
+        }
 
         turnRate = Mathf.Clamp(turnRate, -turnSpeed / 10, turnSpeed / 10);
 

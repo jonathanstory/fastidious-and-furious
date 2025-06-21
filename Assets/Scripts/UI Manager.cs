@@ -46,8 +46,6 @@ public class UIManager : MonoBehaviour
 
     void UpdateHealth()
     {
-        Debug.Log("health - " + GameController.playerHealth);
-
         if (GameController.playerHealth >= 1)
         {
             hearts[0].sprite = heartFull;
